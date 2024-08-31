@@ -1,0 +1,49 @@
+services:
+  file-server:
+    image: eluinstra/file-server-pg:${FILE_SERVER_VERSION}
+    depends_on:
+      - file-server-postgres
+    environment:
+      ebms_jdbc_url: "jdbc:postgresql://file-server-postgres:5432/file-server"
+      ebms_jdbc_username: "file-server"
+      ebms_jdbc_password: "file-server"
+    command: "./start.sh"
+    expose:
+      - 8443
+      - 8080
+    ports:
+      - "8080:8080"
+  file-server-postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: file-server
+      POSTGRES_PASSWORD: file-server
+      POSTGRES_DB: file-server
+    # ports:
+    #   - "5432:5432"
+    # volumes:
+    #   - ./data:/var/lib/postgresql/data
+  file-client:
+    image: eluinstra/file-client-pg:${FILE_CLIENT_VERSION}
+    depends_on:
+      - file-client-postgres
+    environment:
+      ebms_jdbc_url: "jdbc:postgresql://file-client-postgres:5432/file-client"
+      ebms_jdbc_username: "file-client"
+      ebms_jdbc_password: "file-client"
+    command: "./start.sh"
+    expose:
+      - 8443
+      - 8000
+    ports:
+      - "8000:8000"
+  file-client-postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: file-client
+      POSTGRES_PASSWORD: file-client
+      POSTGRES_DB: file-client
+    # ports:
+    #   - "5432:5432"
+    # volumes:
+    #   - ./data:/var/lib/postgresql/data

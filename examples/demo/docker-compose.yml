@@ -1,0 +1,20 @@
+services:
+  file-server:
+    hostname: file-server 
+    image: eluinstra/file-server-bin:${FILE_SERVER_VERSION}
+    environment:
+      server_host: "0.0.0.0"
+      server_baseUrl: "$${server.protocol}://file-server:$${server.port}$${server.path}"
+    command: "./start.sh -hsqldb"
+    expose:
+      - 8443
+      - 8080
+    ports:
+      - "8080:8080"
+  file-client:
+    image: eluinstra/file-client-bin:${FILE_CLIENT_VERSION}
+    command: "./start.sh -hsqldb -port 8000"
+    expose:
+      - 8000
+    ports:
+      - "8000:8000"

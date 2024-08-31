@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="0904e81d-21a4-4c82-8ad5-84749e75dfcd" activeEnvironment="Default" name="file-server" resourceRoot="" soapui-version="5.6.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="904b9157-2bd5-4b2a-9f80-1f17fab8bd23" wsaVersion="NONE" name="UserServiceSoapBinding" type="wsdl" bindingName="{http://luin.dev/file/server/1.0}UserServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/service/user?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/service/user?wsdl"><con:part><con:url>http://localhost:8080/service/user?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="UserService" targetNamespace="http://luin.dev/file/server/1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://luin.dev/file/server/1.0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://luin.dev/file/server/1.0" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="createUser" type="tns:createUser"/>
+      <xs:element name="createUserResponse" type="tns:createUserResponse"/>
+      <xs:element name="deleteUser" type="tns:deleteUser"/>
+      <xs:element name="deleteUserResponse" type="tns:deleteUserResponse"/>
+      <xs:element name="getUser" type="tns:getUser"/>
+      <xs:element name="getUserResponse" type="tns:getUserResponse"/>
+      <xs:element name="getUsers" type="tns:getUsers"/>
+      <xs:element name="getUsersResponse" type="tns:getUsersResponse"/>
+      <xs:element name="newUser" type="tns:newUser"/>
+      <xs:element name="updateUser" type="tns:updateUser"/>
+      <xs:element name="updateUserResponse" type="tns:updateUserResponse"/>
+      <xs:element name="user" type="tns:user"/>
+      <xs:complexType name="deleteUser">
+        <xs:sequence>
+          <xs:element name="id" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteUserResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="updateUser">
+        <xs:sequence>
+          <xs:element name="user" type="tns:user"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="user">
+        <xs:sequence>
+          <xs:element name="id" type="xs:long"/>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="certificate" type="xs:base64Binary"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateUserResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="createUser">
+        <xs:sequence>
+          <xs:element name="user" type="tns:newUser"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="newUser">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="certificate" type="xs:base64Binary"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createUserResponse">
+        <xs:sequence>
+          <xs:element name="id" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getUsers">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="getUsersResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="users" type="tns:user"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getUser">
+        <xs:sequence>
+          <xs:element name="id" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getUserResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="user" type="tns:user"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ServiceException" type="tns:ServiceException"/>
+      <xs:complexType name="ServiceException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="deleteUser">
+    <wsdl:part element="tns:deleteUser" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateUser">
+    <wsdl:part element="tns:updateUser" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createUser">
+    <wsdl:part element="tns:createUser" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateUserResponse">
+    <wsdl:part element="tns:updateUserResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteUserResponse">
+    <wsdl:part element="tns:deleteUserResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUsersResponse">
+    <wsdl:part element="tns:getUsersResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserResponse">
+    <wsdl:part element="tns:getUserResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ServiceException">
+    <wsdl:part element="tns:ServiceException" name="ServiceException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createUserResponse">
+    <wsdl:part element="tns:createUserResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUsers">
+    <wsdl:part element="tns:getUsers" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUser">
+    <wsdl:part element="tns:getUser" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="UserService">
+    <wsdl:operation name="deleteUser">
+      <wsdl:input message="tns:deleteUser" name="deleteUser"></wsdl:input>
+      <wsdl:output message="tns:deleteUserResponse" name="deleteUserResponse"></wsdl:output>
+      <wsdl:fault message="tns:ServiceException" name="ServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <wsdl:input message="tns:updateUser" name="updateUser"></wsdl:input>
+      <wsdl:output message="tns:updateUserResponse" name="updateUserResponse"></wsdl:output>
+      <wsdl:fault message="tns:ServiceException" name="ServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createUser">
+      <wsdl:input message="tns:createUser" name="createUser"></wsdl:input>
+      <wsdl:output message="tns:createUserResponse" name="createUserResponse"></wsdl:output>
+      <wsdl:fault message="tns:ServiceException" name="ServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUsers">
+      <wsdl:input message="tns:getUsers" name="getUsers"></wsdl:input>
+      <wsdl:output message="tns:getUsersResponse" name="getUsersResponse"></wsdl:output>
+      <wsdl:fault message="tns:ServiceException" name="ServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <wsdl:input message="tns:getUser" name="getUser"></wsdl:input>
+      <wsdl:output message="tns:getUserResponse" name="getUserResponse"></wsdl:output>
+      <wsdl:fault message="tns:ServiceException" name="ServiceException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserServiceSoapBinding" type="tns:UserService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="deleteUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deleteUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUsers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUsers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUsersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserService">
+    <wsdl:port binding="tns:UserServiceSoapBinding" name="UserServicePort">
+      <soap:address location="http://localhost:8080/service/user"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/service/user</con:endpoint></con:endpoints><con:operation id="3b6cf241-229b-44ba-a656-f3b84dabb6e0" isOneWay="false" action="" name="createUser" bindingOperationName="createUser" type="Request-Response" outputName="createUserResponse" inputName="createUser" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e1d11ecf-e43c-456c-b627-80ab1e0fc8b1" name="Create User user"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/service/user</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://luin.dev/file/server/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:createUser>
+         <user>
+            <name>user</name>
+            <certificate>MIIDkTCCAnmgAwIBAgIEAk8r7zANBgkqhkiG9w0BAQsFADBuMRAwDgYDVQQGEwdVbmtub3duMRAwDgYDVQQIEwdVbmtub3duMRAwDgYDVQQHEwdVbmtub3duMRAwDgYDVQQKEwdVbmtub3duMRAwDgYDVQQLEwdVbmtub3duMRIwEAYDVQQDEwlsb2NhbGhvc3QwHhcNMjAwMjE2MTkzMzEyWhcNMzAwMjEzMTkzMzEyWjBuMRAwDgYDVQQGEwdVbmtub3duMRAwDgYDVQQIEwdVbmtub3duMRAwDgYDVQQHEwdVbmtub3duMRAwDgYDVQQKEwdVbmtub3duMRAwDgYDVQQLEwdVbmtub3duMRIwEAYDVQQDEwlsb2NhbGhvc3QwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCeV3TTrK6b3QRi3o+dwENEL8K2kIMgUE3H25mVCdgT9+vDqOTLlRjhBWgTx/LEQRR+wYG72Qou+J72QNjMk6l5u+bAk+I50Yb0y92gHC/SQ6xQLgX9Do839bRX6eU8V2mO7lMb5z3om1bI5lSNXO+7onvCQK26DpApRpCKkQL9NPl+4dnZEGy7eG21uQPVysuI8PJNvc5HD73KcfDrPQfUpLCSBfN4ZyOsBUnSzzU7NaqEm0+vfgG2diIImEsbub//FPFMMJrmA3eXSBa0I7nO/Lx2kdqmJa4PR9Lc63Mo9h9siZEWI+vi8AVh7d8gqTTiXkgTFrC+GFV42lY4XrzxAgMBAAGjNzA1MBQGA1UdEQQNMAuCCWxvY2FsaG9zdDAdBgNVHQ4EFgQU/UYjAsSd5ZpoGdeFEE3HvZaJ07wwDQYJKoZIhvcNAQELBQADggEBAEJOfXifv2H6HzHHX4erDmSFC4mvDbgw9FY0GeKU5R6MQKNSc7lpCCXf6/RJ5KipraAbs+e1Y9CTvhvS4K2cvEDxi+wn5yFkPH72RnRvDsACHKvYPIbV1q3S9SG91QMaCFPcHb1TpEldHRD8AX/C9ERr5dlZactEyBQVmS8WN8rTXU6hlDqAMkVEGRXUHCeVKAKlgNqgKMOPGLZ6HR9EW7W/98jI6qObZk5ATNlbXdi8KtB4542Igdb8XKp/pRCR5mt+oq77ogbS+SN5p8e31Tu4FoD4N+kUW/WCmYXHEuE3bOs2Pq8oK2t5GLNVQRfdumucbk7AhrJx0bcWu63jr0I=</certificate>
+         </user>
+      </ns:createUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://luin.dev/file/server/1.0/UserService/createUser"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="470094ab-b272-4112-9358-98e5d31bb619" isOneWay="false" action="" name="deleteUser" bindingOperationName="deleteUser" type="Request-Response" outputName="deleteUserResponse" inputName="deleteUser" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="763a4563-ce2a-48a9-b444-b25f78e53b6d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/service/user</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://luin.dev/file/server/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:deleteUser>
+         <id>?</id>
+      </ns:deleteUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://luin.dev/file/server/1.0/UserService/deleteUser"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="874a2a0a-da19-47ac-9934-bfdca213e094" isOneWay="false" action="" name="getUser" bindingOperationName="getUser" type="Request-Response" outputName="getUserResponse" inputName="getUser" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ac6eb4f5-f4cf-4375-8b24-d4481153d2ff" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/service/user</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://luin.dev/file/server/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:getUser>
+         <id>0</id>
+      </ns:getUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://luin.dev/file/server/1.0/UserService/getUser"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="bcdb97f8-675c-44cb-a094-f21dab21d74c" isOneWay="false" action="" name="getUsers" bindingOperationName="getUsers" type="Request-Response" outputName="getUsersResponse" inputName="getUsers" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0b3c3326-7865-4182-a9a7-1647e647fba9" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/service/user</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://luin.dev/file/server/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:getUsers/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://luin.dev/file/server/1.0/UserService/getUsers"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="45864422-5ea5-4f6f-8358-31412e6e9371" isOneWay="false" action="" name="updateUser" bindingOperationName="updateUser" type="Request-Response" outputName="updateUserResponse" inputName="updateUser" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="469e5cb7-e1f9-427d-8e07-959f19c4b887" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/service/user</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://luin.dev/file/server/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:updateUser>
+         <user>
+            <id>0</id>
+            <name>user</name>
+            <certificate>MIIDkTCCAnmgAwIBAgIEAk8r7zANBgkqhkiG9w0BAQsFADBuMRAwDgYDVQQGEwdVbmtub3duMRAwDgYDVQQIEwdVbmtub3duMRAwDgYDVQQHEwdVbmtub3duMRAwDgYDVQQKEwdVbmtub3duMRAwDgYDVQQLEwdVbmtub3duMRIwEAYDVQQDEwlsb2NhbGhvc3QwHhcNMjAwMjE2MTkzMzEyWhcNMzAwMjEzMTkzMzEyWjBuMRAwDgYDVQQGEwdVbmtub3duMRAwDgYDVQQIEwdVbmtub3duMRAwDgYDVQQHEwdVbmtub3duMRAwDgYDVQQKEwdVbmtub3duMRAwDgYDVQQLEwdVbmtub3duMRIwEAYDVQQDEwlsb2NhbGhvc3QwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCeV3TTrK6b3QRi3o+dwENEL8K2kIMgUE3H25mVCdgT9+vDqOTLlRjhBWgTx/LEQRR+wYG72Qou+J72QNjMk6l5u+bAk+I50Yb0y92gHC/SQ6xQLgX9Do839bRX6eU8V2mO7lMb5z3om1bI5lSNXO+7onvCQK26DpApRpCKkQL9NPl+4dnZEGy7eG21uQPVysuI8PJNvc5HD73KcfDrPQfUpLCSBfN4ZyOsBUnSzzU7NaqEm0+vfgG2diIImEsbub//FPFMMJrmA3eXSBa0I7nO/Lx2kdqmJa4PR9Lc63Mo9h9siZEWI+vi8AVh7d8gqTTiXkgTFrC+GFV42lY4XrzxAgMBAAGjNzA1MBQGA1UdEQQNMAuCCWxvY2FsaG9zdDAdBgNVHQ4EFgQU/UYjAsSd5ZpoGdeFEE3HvZaJ07wwDQYJKoZIhvcNAQELBQADggEBAEJOfXifv2H6HzHHX4erDmSFC4mvDbgw9FY0GeKU5R6MQKNSc7lpCCXf6/RJ5KipraAbs+e1Y9CTvhvS4K2cvEDxi+wn5yFkPH72RnRvDsACHKvYPIbV1q3S9SG91QMaCFPcHb1TpEldHRD8AX/C9ERr5dlZactEyBQVmS8WN8rTXU6hlDqAMkVEGRXUHCeVKAKlgNqgKMOPGLZ6HR9EW7W/98jI6qObZk5ATNlbXdi8KtB4542Igdb8XKp/pRCR5mt+oq77ogbS+SN5p8e31Tu4FoD4N+kUW/WCmYXHEuE3bOs2Pq8oK2t5GLNVQRfdumucbk7AhrJx0bcWu63jr0I=</certificate>
+         </user>
+      </ns:updateUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://luin.dev/file/server/1.0/UserService/updateUser"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="bd504b88-da7b-4c1a-b5a9-a078bf73fabb" wsaVersion="NONE" name="FileServiceSoapBinding" type="wsdl" bindingName="{http://luin.dev/file/server/1.0}FileServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/service/file?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/service/file?wsdl"><con:part><con:url>http://localhost:8080/service/file?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="FileService" targetNamespace="http://luin.dev/file/server/1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://luin.dev/file/server/1.0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://luin.dev/file/server/1.0" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xmime="http://www.w3.org/2005/05/xmlmime">
+      <xs:import namespace="http://www.w3.org/2005/05/xmlmime"/>
+      <xs:element name="deleteFile" type="tns:deleteFile"/>
+      <xs:element name="deleteFileResponse" type="tns:deleteFileResponse"/>
+      <xs:element name="downloadFile" type="tns:downloadFile"/>
+      <xs:element name="downloadFileResponse" type="tns:downloadFileResponse"/>
+      <xs:element name="file" type="tns:file"/>
+      <xs:element name="fileInfo" type="tns:fileInfo"/>
+      <xs:element name="getFileInfo" type="tns:getFileInfo"/>
+      <xs:element name="getFileInfoResponse" type="tns:getFileInfoResponse"/>
+      <xs:element name="getFiles" type="tns:getFiles"/>
+      <xs:element name="getFilesResponse" type="tns:getFilesResponse"/>
+      <xs:element name="newFile" type="tns:newFile"/>
+      <xs:element name="uploadFile" type="tns:uploadFile"/>
+      <xs:element name="uploadFileResponse" type="tns:uploadFileResponse"/>
+      <xs:complexType name="deleteFile">
+        <xs:sequence>
+          <xs:element name="path" type="xs:string"/>
+          <xs:element minOccurs="0" name="force" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteFileResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="downloadFile">
+        <xs:sequence>
+          <xs:element name="path" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="downloadFileResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="file" type="tns:file"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="file">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sha256Checksum" type="xs:string"/>
+          <xs:element name="content" type="xs:base64Binary" xmime:expectedContentTypes="application/octet-stream"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="uploadFile">
+        <xs:sequence>
+          <xs:element name="userId" type="xs:long"/>
+          <xs:element name="file" type="tns:newFile"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="newFile">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sha256Checksum" type="xs:string"/>
+          <xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+          <xs:element name="content" type="xs:base64Binary" xmime:expectedContentTypes="application/octet-stream"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="uploadFileResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="path" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getFileInfo">
+        <xs:sequence>
+          <xs:element name="path" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getFileInfoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="fileInfo" type="tns:fileInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="fileInfo">
+        <xs:sequence>
+          <xs:element name="path" type="xs:string"/>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="contentType" type="xs:string"/>
+          <xs:element name="md5Checksum" type="xs:string"/>
+          <xs:element name="sha256Checksum" type="xs:string"/>
+          <xs:element name="timestamp" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+          <xs:element name="userId" type="xs:long"/>
+          <xs:element name="length" type="xs:long"/>
+          <xs:element name="lastModified" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getFiles">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="getFilesResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="path" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ServiceException" type="tns:ServiceException"/>
+      <xs:complexType name="ServiceException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getFileInfo">
+    <wsdl:part element="tns:getFileInfo" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFiles">
+    <wsdl:part element="tns:getFiles" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteFile">
+    <wsdl:part element="tns:deleteFile" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="downloadFile">
+    <wsdl:part element="tns:downloadFile" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteFileResponse">
+    <wsdl:part element="tns:deleteFileResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="uploadFile">
+    <wsdl:part element="tns:uploadFile" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="uploadFileResponse">
+    <wsdl:part element="tns:uploadFileResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="downloadFileResponse">
+    <wsdl:part element="tns:downloadFileResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ServiceException">
+    <wsdl:part element="tns:ServiceException" name="ServiceException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFileInfoResponse">
+    <wsdl:part element="tns:getFileInfoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFilesResponse">
+    <wsdl:part element="tns:getFilesResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="FileService">
+    <wsdl:operation name="deleteFile">
+      <wsdl:input message="tns:deleteFile" name="deleteFile"></wsdl:input>
+      <wsdl:output message="tns:deleteFileResponse" name="deleteFileResponse"></wsdl:output>
+      <wsdl:fault message="tns:ServiceException" name="ServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="downloadFile">
+      <wsdl:input message="tns:downloadFile" name="downloadFile"></wsdl:input>
+      <wsdl:output message="tns:downloadFileResponse" name="downloadFileResponse"></wsdl:output>
+      <wsdl:fault message="tns:ServiceException" name="ServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="uploadFile">
+      <wsdl:input message="tns:uploadFile" name="uploadFile"></wsdl:input>
+      <wsdl:output message="tns:uploadFileResponse" name="uploadFileResponse"></wsdl:output>
+      <wsdl:fault message="tns:ServiceException" name="ServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFileInfo">
+      <wsdl:input message="tns:getFileInfo" name="getFileInfo"></wsdl:input>
+      <wsdl:output message="tns:getFileInfoResponse" name="getFileInfoResponse"></wsdl:output>
+      <wsdl:fault message="tns:ServiceException" name="ServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFiles">
+      <wsdl:input message="tns:getFiles" name="getFiles"></wsdl:input>
+      <wsdl:output message="tns:getFilesResponse" name="getFilesResponse"></wsdl:output>
+      <wsdl:fault message="tns:ServiceException" name="ServiceException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FileServiceSoapBinding" type="tns:FileService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="deleteFile">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deleteFile">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteFileResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="downloadFile">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="downloadFile">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="downloadFileResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="uploadFile">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="uploadFile">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="uploadFileResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFileInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getFileInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getFileInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFiles">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getFiles">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getFilesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FileService">
+    <wsdl:port binding="tns:FileServiceSoapBinding" name="FileServicePort">
+      <soap:address location="http://localhost:8080/service/file"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/service/file</con:endpoint></con:endpoints><con:operation id="08eb2e2c-8871-40b4-988e-2eaec355c84c" isOneWay="false" action="" name="deleteFile" bindingOperationName="deleteFile" type="Request-Response" outputName="deleteFileResponse" inputName="deleteFile" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3ab6445c-b7aa-42cb-b1fa-73c9a876fc85" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/service/file</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://luin.dev/file/server/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:deleteFile>
+         <path>?</path>
+         <!--Optional:-->
+         <force>?</force>
+      </ns:deleteFile>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://luin.dev/file/server/1.0/FileService/deleteFile"/></con:call></con:operation><con:operation id="4efd54d6-ae12-4188-8109-6de7f2292bbb" isOneWay="false" action="" name="downloadFile" bindingOperationName="downloadFile" type="Request-Response" outputName="downloadFileResponse" inputName="downloadFile" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1872ad68-6097-4fdf-be31-17427314f8a0" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/service/file</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://luin.dev/file/server/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:downloadFile>
+         <path>?</path>
+      </ns:downloadFile>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://luin.dev/file/server/1.0/FileService/downloadFile"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="b50ac6f8-02e1-4088-9031-20f88a86d86f" isOneWay="false" action="" name="getFileInfo" bindingOperationName="getFileInfo" type="Request-Response" outputName="getFileInfoResponse" inputName="getFileInfo" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8cafc1b6-42d3-4406-85a4-d8ef6f8bb81a" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/service/file</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://luin.dev/file/server/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:getFileInfo>
+         <path>?</path>
+      </ns:getFileInfo>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://luin.dev/file/server/1.0/FileService/getFileInfo"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="71f09927-56c4-4e54-8ff2-a430d59376a0" isOneWay="false" action="" name="getFiles" bindingOperationName="getFiles" type="Request-Response" outputName="getFilesResponse" inputName="getFiles" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="04ca263e-0558-4df6-a694-66e09e40aab0" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/service/file</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://luin.dev/file/server/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:getFiles/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://luin.dev/file/server/1.0/FileService/getFiles"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="6b9a036b-55d7-4b61-b762-4d43c0911d87" isOneWay="false" action="" name="uploadFile" bindingOperationName="uploadFile" type="Request-Response" outputName="uploadFileResponse" inputName="uploadFile" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="08843eca-fd8a-470c-9247-536bb8e228f7" name="Upload Lorem ipsum.txt"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting><con:setting id="WsdlSettings@enable-mtom">true</con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/service/file</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://luin.dev/file/server/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:uploadFile>
+         <userId>0</userId>
+         <file>
+            <content>cid:1279700706489</content>
+         </file>
+      </ns:uploadFile>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:attachment><con:name>Lorem ipsum.txt</con:name><con:contentType>text/plain</con:contentType><con:size>2658</con:size><con:contentId>1279700706489</con:contentId><con:part>1279700706489</con:part><con:data>UEsDBBQACAgIAGWYfVEAAAAAAAAAAAAAAAAPAAAATG9yZW0gaXBzdW0udHh0XVZbjtxGDPz3KXgAYe5gxAlgwAkSBPE/p8WdZdDq1vZjsMd3sR+Sdn80GPWDZFWxqB8xyUa657rRGn1MlLUQb1IWcjFkcUVKTcSr7pqdhgeJ13Kj34vyRrt4L6FIfqtCe001Ezt6lbAmSbhoYy+58so3+qsGR099SkpMcdVIEnRbqBaSh+TCeaTxwtXpvd1kp7xHnJX39gopPRDJx3tMRfONfkvc3q66IQ+cflp6tMdcJdlGK89XV/rhJ3tvx74j54ck0rVX+Va5tKRu9NUr/m2UZaUnJ8XBjOgSbvRfIWVXcQPdPSNmoRexf7OsLNsu6UZ/ck143f8SiiMNFJNTkqp5i+vc+eXLVwnC4UC9gWKYbEp3vQNI1NSrvtHfr5wBeAd59+wkIe2gWW/0Dy42EooGp2sN4M/jfIpIrrBQ9SWpk0wNUBcTwi/gpyU6dm5cACpxcnWhEANevOuGcNiDJ7a0yM+uAKBRUIXh48SD7hY/iD1RAE44aKYcaDyjr2VHwiMasF9NQzmuppKFsMTO1S0DDxTlAW59KOOGAdKEWSxyw8GS3JMUrZuROk/Mdxeh/IF0ZGARTIoXdS8DHQU84AD36rrMvOj/mgt08VOfbFhsES+Liqm2DLlZxEEHWEosGWIcax1iVDd0ZSkDLn0Bt/RWbWlHjmzbTRY3+rfmHYuaM3oqFlwFfr/FICC9+qcGhqbeLzQdnBOSQIp4alAmvkoGCsTtSOcR8P4bAkOM4OJRPU85LwdwLdWeHQo2jXNtGpw6u3LeutmEUf1eCxes2hmnpa4aIPLvYSD/QVBQRkx3tZOhm4Nt8dKbtSbTXFeYgRpRwNmr/MmtrnTO3YeYFN2erJGC3l8/Q2btQy8JzqbojHPhLBUwvQBRgAAYOp2nJOVVnSF4tOO0r4Oyq0U2LRkVaO+jmKVRPwpuwj+W5iVqbrEq6ry07yAPJgmuDKjYOjpntv6bTHb6luHOvZOPrBmJQZoXYBsTzaosrmVzumWqJeHGaa6fSD6l1vTQ1L/QI/FTV7YWOVQPa12m2RgZnXIIH5YLsMdK76ZJwpnhkGxXS0HrQAaz2LML22A4WW7e1WINUxxmtFjAc9ukZQrpp7X6vXpc3Zq5n16OMdAwki6S5dQZKh3jyAA+plgfJ0tPBhRNS5jevIy5aJEmbm2CLaPaJ0QX2MAZjS7R7rFLplJwE1Ju4/gqvGFmJ5en433YJ++LGfPsU3OMYx6D5SnH0O3AnNim27CImGBN0nnUS9s1TfbQHZ7LhwGu36SNFYNqfALsSTdtlnV2UyP0kJBFbQbcZe3ihqkaj/XTrld9QMQZQ/V0p+6c1nQfa2/tC+e0YhvgUHX/zmnDUI8m219RZ8EkGlpkh2nLYErKaBmD4LCEClw6Y4sVekLfPyyApTMR1zKda6h6cN+j9nLHVpBwDigrRN5x9lpMF0zTE1TycajYgVNKlt0MfKLVnaqP2aVNgsvi8OjOd0tsKkOGqvHbqLzRL1BLBwhgVtG3YwQAAGIKAABQSwECFAAUAAgICABlmH1RYFbRt2MEAABiCgAADwAAAAAAAAAAAAAAAAAAAAAATG9yZW0gaXBzdW0udHh0UEsFBgAAAAABAAEAPQAAAKAEAAAAAA==</con:data><con:id>7da23aea-0311-4db8-9fc2-21995db33e74</con:id></con:attachment><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://luin.dev/file/server/1.0/FileService/uploadFile"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="f935a56f-8c9a-4e67-a2dd-644f258d0a3c" wsaVersion="NONE" name="GBServiceSoapBinding" type="wsdl" bindingName="{http://luin.dev/digikoppeling/gb/server/1.0}GBServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/service/gb?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/service/gb?wsdl"><con:part><con:url>http://localhost:8080/service/gb?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="GBService" targetNamespace="http://luin.dev/digikoppeling/gb/server/1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://luin.dev/digikoppeling/gb/server/1.0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.logius.nl/digikoppeling/gb/2010/10" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.logius.nl/digikoppeling/gb/2010/10">
+      <xs:element name="digikoppeling-external-data-references" type="tns:external-data-reference"/>
+      <xs:element name="external-data-reference" type="tns:external-data-reference"/>
+      <xs:complexType name="external-data-reference">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="data-reference" type="tns:data-reference"/>
+        </xs:sequence>
+        <xs:attribute name="profile" type="tns:gb-profile"/>
+      </xs:complexType>
+      <xs:complexType name="data-reference">
+        <xs:sequence>
+          <xs:element name="lifetime">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" name="creationTime" type="tns:datetimeType"/>
+                <xs:element minOccurs="0" name="expirationTime" type="tns:datetimeType"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="content">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="filename" type="xs:NCName"/>
+                <xs:element name="checksum" type="tns:checksumType"/>
+                <xs:element name="size" type="xs:unsignedLong"/>
+              </xs:sequence>
+              <xs:attribute name="contentType" type="xs:string" use="required"/>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="transport">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="location">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element minOccurs="0" name="senderUrl" type="tns:urlType"/>
+                      <xs:element minOccurs="0" name="receiverUrl" type="tns:urlType"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="contextId" type="xs:anySimpleType"/>
+      </xs:complexType>
+      <xs:complexType name="datetimeType">
+        <xs:simpleContent>
+          <xs:extension base="xs:anySimpleType">
+            <xs:attribute name="type" type="xs:string" use="required"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="checksumType">
+        <xs:simpleContent>
+          <xs:extension base="tns:md5String">
+            <xs:attribute name="type" type="xs:string" use="required"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="md5String">
+        <xs:simpleContent>
+          <xs:extension base="tns:anyString"/>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:simpleType name="anyString">
+        <xs:restriction base="xs:string"/>
+      </xs:simpleType>
+      <xs:complexType name="urlType">
+        <xs:simpleContent>
+          <xs:extension base="tns:anyString">
+            <xs:attribute name="type" type="xs:anySimpleType" use="required"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:simpleType name="gb-profile">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="digikoppeling-gb-1.0"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://luin.dev/digikoppeling/gb/server/1.0" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.logius.nl/digikoppeling/gb/2010/10">
+      <xs:import namespace="http://www.logius.nl/digikoppeling/gb/2010/10"/>
+      <xs:element name="getExternalDataReference" type="tns:getExternalDataReference"/>
+      <xs:element name="getExternalDataReferenceResponse" type="tns:getExternalDataReferenceResponse"/>
+      <xs:complexType name="getExternalDataReference">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="path" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getExternalDataReferenceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:external-data-reference"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GBServiceException" type="tns:GBServiceException"/>
+      <xs:complexType name="GBServiceException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GBServiceException">
+    <wsdl:part element="tns:GBServiceException" name="GBServiceException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getExternalDataReference">
+    <wsdl:part element="tns:getExternalDataReference" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getExternalDataReferenceResponse">
+    <wsdl:part element="tns:getExternalDataReferenceResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="GBService">
+    <wsdl:operation name="getExternalDataReference">
+      <wsdl:input message="tns:getExternalDataReference" name="getExternalDataReference"></wsdl:input>
+      <wsdl:output message="tns:getExternalDataReferenceResponse" name="getExternalDataReferenceResponse"></wsdl:output>
+      <wsdl:fault message="tns:GBServiceException" name="GBServiceException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GBServiceSoapBinding" type="tns:GBService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getExternalDataReference">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getExternalDataReference">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getExternalDataReferenceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="GBServiceException">
+        <soap:fault name="GBServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GBService">
+    <wsdl:port binding="tns:GBServiceSoapBinding" name="GBServicePort">
+      <soap:address location="http://localhost:8080/service/gb"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/service/gb</con:endpoint></con:endpoints><con:operation id="9e352edb-2b64-4fd9-bb68-b15a2854f236" isOneWay="false" action="" name="getExternalDataReference" bindingOperationName="getExternalDataReference" type="Request-Response" outputName="getExternalDataReferenceResponse" inputName="getExternalDataReference" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="581049dd-ecf8-4928-a551-08e77f957417" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/service/gb</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://luin.dev/digikoppeling/gb/server/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:getExternalDataReference>
+         <!--1 or more repetitions:-->
+         <path></path>
+      </ns:getExternalDataReference>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://luin.dev/digikoppeling/gb/1.0/GBService/getExternalDataReference"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
