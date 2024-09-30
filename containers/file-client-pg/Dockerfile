@@ -5,6 +5,7 @@ ENV jdbc_driverClassName=org.postgresql.Driver
 ENV jdbc_url=jdbc:postgresql://postgres:5432/file-client
 ENV jdbc_username=file-server
 ENV jdbc_password=password
-RUN curl -OL https://jdbc.postgresql.org/download/${POSTGRES_DRIVER}
+COPY ${POSTGRES_DRIVER} .
+# RUN curl -OL https://jdbc.postgresql.org/download/${POSTGRES_DRIVER}
 #ENTRYPOINT ["./start.sh"]
 #EXPOSE 8443 8000 5432

@@ -11,11 +11,12 @@ LABEL maintainer="eluinstra@luin.dev"
 LABEL version=dev.luin.file.client.version=$FILE_CLIENT_VERSION
 WORKDIR $WORKDIR
 COPY truststore.p12 .
+COPY ${FILE_CLIENT}.jar .
 RUN addgroup --system $USER && \
 adduser --system --ingroup $USER $USER && \
 apt update && \
 apt install zip -y && \
-curl -OL https://github.com/eluinstra/file-client/releases/download/${FILE_CLIENT_VERSION}/${FILE_CLIENT}.jar && \
+# curl -OL https://github.com/eluinstra/file-client/releases/download/${FILE_CLIENT_VERSION}/${FILE_CLIENT}.jar && \
 unzip -p ${FILE_CLIENT}.jar $LOG4J2 > $LOG4J2 && \
 sed -i 's/ref="File"/ref="Console"/g' $LOG4J2 && \
 printf "#!/bin/sh\n" > $START && \

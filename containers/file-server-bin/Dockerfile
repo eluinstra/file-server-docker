@@ -11,11 +11,12 @@ LABEL maintainer="eluinstra@luin.dev"
 LABEL version=dev.luin.file.server.version=$FILE_SERVER_VERSION
 WORKDIR $WORKDIR
 COPY keystore.p12 .
+COPY ${FILE_SERVER}.jar .
 RUN addgroup --system $USER && \
 adduser --system --ingroup $USER $USER && \
 apt update && \
 apt install zip -y && \
-curl -OL https://github.com/eluinstra/file-server/releases/download/${FILE_SERVER_VERSION}/${FILE_SERVER}.jar && \
+# curl -OL https://github.com/eluinstra/file-server/releases/download/${FILE_SERVER_VERSION}/${FILE_SERVER}.jar && \
 unzip -p ${FILE_SERVER}.jar $LOG4J2 > $LOG4J2 && \
 sed -i 's/ref="File"/ref="Console"/g' $LOG4J2 && \
 printf "#!/bin/sh\n" > $START && \
