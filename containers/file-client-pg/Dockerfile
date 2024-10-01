@@ -1,4 +1,4 @@
-FROM eluinstra/file-client-bin:1.0.0
+FROM eluinstra/file-client-bin:2.0.0
 ARG POSTGRES_DRIVER=
 ENV CLASSPATH="${POSTGRES_DRIVER}:"
 ENV jdbc_driverClassName=org.postgresql.Driver
