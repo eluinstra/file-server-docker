@@ -1,5 +1,5 @@
-FROM ibm-semeru-runtimes:open-8-jre
-ARG FILE_CLIENT_VERSION=1.0.0
+FROM ibm-semeru-runtimes:open-17-jre
+ARG FILE_CLIENT_VERSION=2.0.0-M1
 ARG FILE_CLIENT=file-client-${FILE_CLIENT_VERSION}
 ARG LOG4J2=log4j2.xml
 ARG START=start.sh
