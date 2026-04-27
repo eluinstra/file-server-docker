@@ -14,7 +14,7 @@ services:
     ports:
       - "8080:8080"
   file-server-postgres:
-    image: postgres:16
+    image: postgres:18
     environment:
       POSTGRES_USER: file-server
       POSTGRES_PASSWORD: file-server
@@ -34,11 +34,11 @@ services:
     command: "./start.sh"
     expose:
       - 8443
-      - 8000
+      - 8080
     ports:
-      - "8000:8000"
+      - "8000:8080"
   file-client-postgres:
-    image: postgres:16
+    image: postgres:18
     environment:
       POSTGRES_USER: file-client
       POSTGRES_PASSWORD: file-client

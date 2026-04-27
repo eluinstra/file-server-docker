@@ -1,5 +1,5 @@
 FROM ibm-semeru-runtimes:open-17-jre
-ARG FILE_SERVER_VERSION=2.0.0
+ARG FILE_SERVER_VERSION=2.1.0
 ARG FILE_SERVER=file-server-${FILE_SERVER_VERSION}
 ARG LOG4J2=log4j2.xml
 ARG START=start.sh
