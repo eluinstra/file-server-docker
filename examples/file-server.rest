@@ -16,11 +16,11 @@ Content-Type: application/json
 
 ### getUser
 
-GET https://localhost:8080/service/rest/v1/users/0
+GET https://localhost:8080/service/rest/v1/users/1
 
 ### updateUser
 
-PUT https://localhost:8080/service/rest/v1/users/0
+PUT https://localhost:8080/service/rest/v1/users/1
 Content-Type: application/json
 
 {
@@ -30,13 +30,13 @@ Content-Type: application/json
 
 ### deleteUser
 
-DELETE https://localhost:8080/service/rest/v1/users/0
+DELETE https://localhost:8080/service/rest/v1/users/1
 
 ### Files
 
 ### uploadFile
 
-POST https://localhost:8080/service/rest/v1/files/user/0
+POST https://localhost:8080/service/rest/v1/files/user/1
 Content-Type: multipart/form-data; boundary=-=cTIBJ6SPK7J5=-
 
 ---=cTIBJ6SPK7J5=-

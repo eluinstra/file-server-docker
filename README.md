@@ -4,13 +4,12 @@ This project contains Docker examples for different File Server configurations
 
 ## Examples
 
-- demo - simple demo
 - demo-pg - demo with postgres db
 
 ### Build and run demo:
 
 ```
-cd examples/demo
+cd examples/demo-pg
 docker compose up
 ```
 
