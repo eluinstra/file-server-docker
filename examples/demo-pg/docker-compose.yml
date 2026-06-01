@@ -4,9 +4,9 @@ services:
     depends_on:
       - file-server-postgres
     environment:
-      ebms_jdbc_url: "jdbc:postgresql://file-server-postgres:5432/file-server"
-      ebms_jdbc_username: "file-server"
-      ebms_jdbc_password: "file-server"
+      jdbc_url: "jdbc:postgresql://file-server-postgres:5432/${FILE_SERVER_DB_NAME}"
+      jdbc_username: "${FILE_SERVER_DB_USER}"
+      jdbc_password: "${FILE_SERVER_DB_PASSWORD}"
     command: "./start.sh"
     expose:
       - 8443
@@ -16,9 +16,9 @@ services:
   file-server-postgres:
     image: postgres:18
     environment:
-      POSTGRES_USER: file-server
-      POSTGRES_PASSWORD: file-server
-      POSTGRES_DB: file-server
+      POSTGRES_USER: ${FILE_SERVER_DB_USER}
+      POSTGRES_PASSWORD: ${FILE_SERVER_DB_PASSWORD}
+      POSTGRES_DB: ${FILE_SERVER_DB_NAME}
     # ports:
     #   - "5432:5432"
     # volumes:
@@ -28,9 +28,9 @@ services:
     depends_on:
       - file-client-postgres
     environment:
-      ebms_jdbc_url: "jdbc:postgresql://file-client-postgres:5432/file-client"
-      ebms_jdbc_username: "file-client"
-      ebms_jdbc_password: "file-client"
+      jdbc_url: "jdbc:postgresql://file-client-postgres:5432/${FILE_CLIENT_DB_NAME}"
+      jdbc_username: "${FILE_CLIENT_DB_USER}"
+      jdbc_password: "${FILE_CLIENT_DB_PASSWORD}"
     command: "./start.sh"
     expose:
       - 8443
@@ -40,9 +40,9 @@ services:
   file-client-postgres:
     image: postgres:18
     environment:
-      POSTGRES_USER: file-client
-      POSTGRES_PASSWORD: file-client
-      POSTGRES_DB: file-client
+      POSTGRES_USER: ${FILE_CLIENT_DB_USER}
+      POSTGRES_PASSWORD: ${FILE_CLIENT_DB_PASSWORD}
+      POSTGRES_DB: ${FILE_CLIENT_DB_NAME}
     # ports:
     #   - "5432:5432"
     # volumes:

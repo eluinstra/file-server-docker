@@ -1,28 +1,28 @@
 FROM ibm-semeru-runtimes:open-17-jre
-ARG FILE_CLIENT_VERSION=2.1.1
-ARG FILE_CLIENT=file-client-${FILE_CLIENT_VERSION}
+ARG FILE_SERVER_VERSION
+ARG FILE_SERVER=file-server-${FILE_SERVER_VERSION}
 ARG LOG4J2=log4j2.xml
 ARG START=start.sh
 ARG USER=user
 ENV WORKDIR=/home/$USER
 ENV JAVA_ARGS="-Dlog4j.configurationFile=$LOG4J2"
-ENV truststore_path="truststore.p12"
+ENV keystore_path="keystore.p12"
 LABEL maintainer="eluinstra@luin.dev"
-LABEL version=dev.luin.file.client.version=$FILE_CLIENT_VERSION
+LABEL version=dev.luin.file.server.version=$FILE_SERVER_VERSION
 WORKDIR $WORKDIR
-COPY truststore.p12 .
+COPY keystore.p12 .
 RUN groupadd --system $USER && \
 useradd --system -g $USER $USER && \
 apt update && \
 apt install zip -y && \
-curl -OL https://github.com/eluinstra/file-client/releases/download/${FILE_CLIENT_VERSION}/${FILE_CLIENT}.jar && \
-unzip -p ${FILE_CLIENT}.jar $LOG4J2 > $LOG4J2 && \
+curl -OL https://github.com/eluinstra/file-server/releases/download/${FILE_SERVER_VERSION}/${FILE_SERVER}.jar && \
+unzip -p ${FILE_SERVER}.jar $LOG4J2 > $LOG4J2 && \
 sed -i 's/ref="File"/ref="Console"/g' $LOG4J2 && \
 printf "#!/bin/sh\n" > $START && \
-printf "java \$JAVA_ARGS -cp \${CLASSPATH}${FILE_CLIENT}.jar dev.luin.file.client.StartGB \$@" >> $START && \
+printf "java \$JAVA_ARGS -cp \${CLASSPATH}${FILE_SERVER}.jar dev.luin.file.server.StartGB \$@" >> $START && \
 mkdir files && \
 chmod u+x $START && \
 chown -R $USER:$USER $WORKDIR
 USER $USER:$USER
 #ENTRYPOINT ["./$START"]
-#EXPOSE 8443 8000
+#EXPOSE 8443 8080
