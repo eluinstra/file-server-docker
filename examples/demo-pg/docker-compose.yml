@@ -7,6 +7,11 @@ services:
       jdbc_url: "jdbc:postgresql://file-server-postgres:5432/${FILE_SERVER_DB_NAME}"
       jdbc_username: "${FILE_SERVER_DB_USER}"
       jdbc_password: "${FILE_SERVER_DB_PASSWORD}"
+    # SOAP/REST authentication is mandatory since 2.1.2; provide a demo realm so the
+    # server starts non-interactively. Rebuild the image from source for this to apply;
+    # the prebuilt 2.1.1 image has no auth (see examples README). DEMO credentials only.
+    volumes:
+      - ./realm.properties:/home/user/realm.properties
     command: "./start.sh"
     expose:
       - 8443
